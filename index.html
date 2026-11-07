@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Free Online Photo Editor: Effects &amp; Frames | LovePDFi</title>
+  <meta name="description" content="Create photos with free online effects, decorative frames, shape crops and filters. Adjust colors and transparency directly in your browser.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://images.lovepdfi.com/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:site_name" content="LovePDFi Photo Studio">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://images.lovepdfi.com/">
+  <meta property="og:title" content="Free Online Photo Editor: Effects &amp; Frames | LovePDFi">
+  <meta property="og:description" content="Create photos with free online effects, decorative frames, shape crops and filters. Adjust colors and transparency directly in your browser.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Free Online Photo Editor: Effects &amp; Frames | LovePDFi">
+  <meta name="twitter:description" content="Create photos with free online effects, decorative frames, shape crops and filters in your browser.">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"Organization","@id":"https://images.lovepdfi.com/#organization","name":"LovePDFi","url":"https://lovepdfi.com/","subOrganization":{"@type":"Organization","name":"LovePDFi Photo Studio","url":"https://images.lovepdfi.com/"}},
+      {"@type":"WebSite","@id":"https://images.lovepdfi.com/#website","url":"https://images.lovepdfi.com/","name":"LovePDFi Photo Studio","publisher":{"@id":"https://images.lovepdfi.com/#organization"},"inLanguage":"en"},
+      {"@type":"WebPage","@id":"https://images.lovepdfi.com/#webpage","url":"https://images.lovepdfi.com/","name":"Free Online Photo Editor: Effects & Frames | LovePDFi","description":"Create photos with free online effects, decorative frames, shape crops and filters. Adjust colors and transparency directly in your browser.","isPartOf":{"@id":"https://images.lovepdfi.com/#website"},"about":{"@id":"https://images.lovepdfi.com/#organization"},"inLanguage":"en"}
+    ]
+  }
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to editor and content</a>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="LovePDFi Photo Studio home"><span class="brand-mark">L</span><span>LovePDFi <b>Photo Studio</b></span></a>
+  <div class="top-actions">
+    <span class="privacy"><i></i> Your photos stay on your device</span>
+    <button id="resetBtn" class="btn btn-ghost">Reset</button>
+    <button id="downloadBtn" class="btn btn-primary" disabled>Download photo <span>↓</span></button>
+  </div>
+</header>
+
+<main class="app-shell" id="main-content">
+  <section class="intro">
+    <div>
+      <p class="eyebrow">FREE ONLINE PHOTO EDITOR</p>
+      <h1>Free Online Photo Effects, <em>Frames &amp; Shape Crop</em></h1>
+      <p class="intro-copy">Edit a photo with creative overlays, decorative borders, shape masks and adjustable filters. Your selected image is processed locally in this browser tab.</p>
+    </div>
+    <div class="intro-pills"><span>100% browser-based</span><span>No account required</span><span>PNG / JPG export</span></div>
+  </section>
+
+  <section class="workspace">
+    <aside class="left-panel panel">
+      <div class="panel-heading"><div><span class="step">01</span><h2>Your photo</h2></div><span class="muted">Start here</span></div>
+      <label class="upload-zone" for="fileInput" id="dropZone">
+        <span class="upload-icon">↑</span><strong>Upload photos</strong><small>Select one or multiple images</small><small class="formats">JPG · PNG · WEBP</small>
+      </label>
+      <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+      <div class="photo-info" id="photoInfo">No image selected yet</div>
+      <div class="divider"></div>
+      <div class="panel-heading compact"><h3>Canvas</h3></div>
+      <div class="control-row"><label for="zoom">Zoom</label><output id="zoomValue">100%</output></div>
+      <input id="zoom" type="range" min="50" max="200" value="100">
+      <div class="two-buttons"><button class="btn btn-soft" id="fitBtn">Fit photo</button><button class="btn btn-soft" id="centerBtn">Center</button></div>
+      <div class="divider"></div>
+      <div class="panel-heading compact"><h3>Export settings</h3></div>
+      <label class="field-label" for="format">File format</label>
+      <select id="format"><option value="image/png">PNG – best quality</option><option value="image/jpeg">JPG – smaller file</option><option value="image/webp">WEBP – modern format</option></select>
+      <div class="control-row"><label for="quality">JPG quality</label><output id="qualityValue">92%</output></div>
+      <input id="quality" type="range" min="40" max="100" value="92">
+    </aside>
+
+    <section class="stage-column">
+      <div class="stage-toolbar"><div><span class="live-dot"></span><span id="stageStatus">Waiting for your photo</span></div><div class="stage-actions"><button id="undoBtn" class="icon-btn" title="Undo" disabled>↶</button><button id="redoBtn" class="icon-btn" title="Redo" disabled>↷</button><button id="checkerBtn" class="icon-btn" title="Toggle canvas background">▦</button></div></div>
+      <div class="canvas-wrap" id="canvasWrap">
+        <div class="empty-state" id="emptyState"><div class="empty-art">✦</div><h2>Your creative space</h2><p>Upload a photo to start adding frames, effects and filters.</p><label for="fileInput" class="btn btn-primary">Choose a photo</label></div>
+        <canvas id="editorCanvas" width="1200" height="900" aria-label="Photo editing canvas"></canvas>
+      </div>
+      <div class="stage-footer"><span>Selected photo · Main editing canvas</span><span id="canvasDimensions">1200 × 900 px</span></div>
+      <section class="photo-gallery" aria-label="Uploaded photo gallery"><div class="gallery-heading"><div><strong>Your gallery</strong><span id="galleryCount">0 photos</span></div><label class="gallery-add" for="fileInput">＋ Add photos</label></div><div class="thumbnail-rail" id="thumbnailRail"><p class="gallery-empty">Your uploaded photos will appear here. Select any thumbnail to edit it.</p></div></section>
+    </section>
+
+    <aside class="right-panel panel">
+      <div class="panel-heading"><div><span class="step">02</span><h2>Studio tools</h2></div><span class="muted">Customize</span></div>
+      <nav class="tabs" aria-label="Editor tools">
+        <button class="tab active" data-tab="effects">Effects</button><button class="tab" data-tab="filters">Filters</button><button class="tab" data-tab="frames">Frames</button><button class="tab" data-tab="shapes">Shapes</button>
+      </nav>
+      <div class="tool-pane active" id="pane-effects">
+        <div class="category-head"><h3>Effect library</h3><span id="effectCount">50+ styles</span></div>
+        <div class="category-chips" id="effectCategories"></div>
+        <div class="preset-grid" id="effectGrid"></div>
+        <div class="divider"></div>
+        <div class="panel-heading compact"><h3>Effect controls</h3><button id="clearEffect" class="text-btn">Clear</button></div>
+        <div class="control-row"><label for="effectOpacity">Transparency</label><output id="effectOpacityValue">65%</output></div>
+        <input id="effectOpacity" type="range" min="0" max="100" value="65">
+        <div class="control-row"><label for="effectScale">Effect size</label><output id="effectScaleValue">100%</output></div>
+        <input id="effectScale" type="range" min="40" max="180" value="100">
+        <div class="control-row"><label for="effectColor">Effect color</label><input id="effectColor" type="color" value="#f6c56f"></div>
+        <div class="hint">Color and transparency controls apply to compatible overlays. Some artistic effects use their own natural colors.</div>
+      </div>
+      <div class="tool-pane" id="pane-filters">
+        <div class="category-head"><h3>Photo filters</h3><span>Live preview</span></div>
+        <div class="preset-grid" id="filterGrid"></div>
+        <div class="divider"></div>
+        <div class="panel-heading compact"><h3>Fine adjustments</h3><button id="resetAdjustments" class="text-btn">Reset</button></div>
+        <div class="control-row"><label for="brightness">Brightness</label><output id="brightnessValue">100%</output></div><input id="brightness" type="range" min="40" max="160" value="100">
+        <div class="control-row"><label for="contrast">Contrast</label><output id="contrastValue">100%</output></div><input id="contrast" type="range" min="40" max="180" value="100">
+        <div class="control-row"><label for="saturation">Saturation</label><output id="saturationValue">100%</output></div><input id="saturation" type="range" min="0" max="200" value="100">
+        <div class="control-row"><label for="blur">Blur</label><output id="blurValue">0px</output></div><input id="blur" type="range" min="0" max="8" value="0">
+      </div>
+      <div class="tool-pane" id="pane-frames">
+        <div class="category-head"><h3>Photo frames</h3><span>Decorative borders</span></div>
+        <div class="category-chips" id="frameCategories"></div>
+        <div class="preset-grid" id="frameGrid"></div>
+        <div class="divider"></div>
+        <div class="control-row"><label for="frameOpacity">Frame transparency</label><output id="frameOpacityValue">100%</output></div><input id="frameOpacity" type="range" min="0" max="100" value="100">
+        <div class="control-row"><label for="frameColor">Frame color</label><input id="frameColor" type="color" value="#e9bd69"></div>
+        <div class="control-row"><label for="frameWidth">Frame thickness</label><output id="frameWidthValue">7%</output></div><input id="frameWidth" type="range" min="2" max="18" value="7">
+      </div>
+      <div class="tool-pane" id="pane-shapes">
+        <div class="category-head"><h3>Crop into a shape</h3><span>Mask your photo</span></div>
+        <div class="shape-grid" id="shapeGrid"></div>
+        <div class="divider"></div>
+        <div class="control-row"><label for="shapeZoom">Shape fill zoom</label><output id="shapeZoomValue">100%</output></div><input id="shapeZoom" type="range" min="70" max="180" value="100">
+        <button class="btn btn-soft full" id="noShapeBtn">Remove shape crop</button>
+      </div>
+    </aside>
+  </section>
+  <section class="seo-content" aria-labelledby="about-studio-heading">
+    <div class="content-kicker">LOVEpdfi PHOTO STUDIO</div>
+    <h2 id="about-studio-heading">Create better photos with online effects, frames and shape crops</h2>
+    <p>LovePDFi Photo Studio is a browser-based photo editor for adding visual effects, decorative frames, creative filters and shaped photo crops. Choose an image from your device, select a style, adjust the settings and export your edited result. The editor is designed for quick creative projects such as profile pictures, invitations, greeting images, social posts and personal photo designs.</p>
+
+    <div class="content-grid">
+      <article class="content-card"><h3>Photo effects and overlays</h3><p>Explore five effect collections: Nature, Luxury, Light, Weather and Artistic. The library includes styles such as cherry blossom, rose petals, butterflies, autumn leaves, snowfall, bokeh, lens flare, glass-inspired details, neon glow, golden dust, smoke, fire, prism, confetti, vintage grain, halftone and glitch-inspired overlays. Select an effect and use the transparency slider to control how strongly it appears. Compatible overlays also let you adjust color and scale.</p></article>
+      <article class="content-card"><h3>Decorative photo frames</h3><p>Choose from Classic, Floral, Celebration and Creative frame groups. Available styles include golden, silver, minimal, black, wooden, Polaroid, film strip, floral, rose, birthday, wedding, love, baby, family, Christmas, Eid, Ramadan, vintage, neon, magazine and nature-inspired borders. Change frame color, thickness and transparency to suit your photo.</p></article>
+      <article class="content-card"><h3>Crop a photo into a shape</h3><p>Use circle, heart, star, hexagon, oval, diamond, triangle, rounded rectangle, cloud, flower, arch, shield, speech bubble, leaf, pentagon or cross masks. Shape cropping is useful for profile images, stickers, invitations and creative layouts. Adjust the fill zoom to change how the image sits inside the selected mask.</p></article>
+      <article class="content-card"><h3>Creative photo filters</h3><p>Apply looks such as Vintage, Cinematic, Black &amp; White, Warm, Cool, Dreamy, Vivid, Matte, Fade, Noir, Retro, Pastel, Golden and Dramatic. Fine-tune brightness, contrast, saturation and blur to make the final image fit your design. The Original option returns the filter look to its neutral setting.</p></article>
+    </div>
+
+    <h2>How to use the online photo editor</h2>
+    <ol class="how-list">
+      <li><strong>Upload a photo.</strong> Choose a JPG, PNG or WEBP image from your device, or drag it into the upload area. The current editor accepts images up to 25 MB.</li>
+      <li><strong>Choose a creative tool.</strong> Open Effects, Filters, Frames or Shapes and select a style from its category.</li>
+      <li><strong>Customize the result.</strong> Adjust transparency, effect color, frame thickness, zoom, brightness, contrast, saturation or blur where those controls are available.</li>
+      <li><strong>Export your image.</strong> Select PNG or JPG, set JPG quality and download the edited image to your device.</li>
+    </ol>
+
+    <h2>Designed for private, local photo editing</h2>
+    <p>The editor uses the browser's Canvas features to render the selected image and apply effects. In this version, the photo file is not uploaded to a LovePDFi image-processing server. Your browser needs enough available memory to work with large images, and closing or refreshing the tab clears the current editing session. Download your result before leaving the page.</p>
+
+    <h2>Supported formats and practical tips</h2>
+    <ul class="feature-list">
+      <li><strong>Input formats:</strong> JPG/JPEG, PNG and WEBP.</li>
+      <li><strong>Export formats:</strong> PNG for lossless output with transparency support where present in the canvas, or JPG for a smaller file.</li>
+      <li><strong>Image size:</strong> Images up to 25 MB can be selected in this version; performance depends on your device and browser memory.</li>
+      <li><strong>Best results:</strong> Start with a clear, well-lit image. Use subtle overlays when you want the original subject to remain prominent.</li>
+      <li><strong>Color control:</strong> The color picker affects compatible decorative overlays and frame borders; some effects retain their natural multi-color appearance.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-list">
+      <details><summary>Is LovePDFi Photo Studio free to use?</summary><p>Yes. The tools in this version are available without an account or payment. Standard browser and device limitations still apply.</p></details>
+      <details><summary>Are my photos uploaded to a server?</summary><p>No image-upload service is used by this editor. The selected photo is opened and processed in your browser. If you add third-party analytics or advertising to the website in the future, update the privacy notice to explain those services separately.</p></details>
+      <details><summary>Which image formats can I edit?</summary><p>You can open JPG/JPEG, PNG and WEBP images. You can export the finished image as PNG or JPG.</p></details>
+      <details><summary>Can I change an effect's transparency and color?</summary><p>Yes. Use the transparency slider to make a selected overlay lighter or stronger. Compatible effects also support a color picker and an effect-size control. Some artistic effects use their own colors.</p></details>
+      <details><summary>Can I crop a photo into a heart or circle?</summary><p>Yes. Select Shapes and choose Circle, Heart or another available mask. Use Shape Fill Zoom to adjust the image inside the shape.</p></details>
+      <details><summary>Why can a large image feel slow?</summary><p>Photo editing takes place in your device's memory. Large dimensions, limited RAM or an older browser can slow rendering. Try a smaller copy of the image and close unused tabs if performance is poor.</p></details>
+      <details><summary>Will the editor keep my work if I close the tab?</summary><p>No. This version does not provide cloud projects or persistent editing sessions. Download your result before refreshing or closing the browser tab.</p></details>
+    </div>
+    <p class="editor-note"><strong>Editor note:</strong> This is a lightweight creative editor for common photo treatments. It is not a replacement for professional layer-based design software, and the visual result of each effect may vary by image and browser.</p>
+  </section>
+  <footer class="site-footer"><span>© <span id="year"></span> LovePDFi Photo Studio</span><span>Photos are processed in your browser</span><nav aria-label="Footer"><a href="/about.html">About</a><a href="/privacy-policy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/contact.html">Contact</a><a href="https://lovepdfi.com/">LovePDFi Main Site</a></nav></footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
